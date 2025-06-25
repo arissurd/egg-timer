@@ -1,118 +1,168 @@
 body {
-  background-color: #f0f2f5;
-  font-family: "Roboto", sans-serif;
+  background: radial-gradient(circle, #a485e2, #6a44a7);
+  font-family: "Arial", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
-  color: #333;
+  color: #fff;
+  overflow: hidden;
 }
 
 .timer-container {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
   padding: 30px 40px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px #d9b8ff;
   text-align: center;
   width: 90%;
-  max-width: 400px;
+  max-width: 450px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+}
+
+/* Menambahkan awan Haki khas Gear 5 */
+.timer-container::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150%;
+  height: 100px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 100"><path d="M0 50 C100 0, 150 0, 250 50 C350 100, 400 100, 500 50 C600 0, 650 0, 750 50" fill="none" stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.5"/></svg>')
+    no-repeat center center;
+  background-size: contain;
+  z-index: -1;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(-50%, 0px);
+  }
+  50% {
+    transform: translate(-50%, -10px);
+  }
+  100% {
+    transform: translate(-50%, 0px);
+  }
 }
 
 h1 {
-  margin-top: 0;
-  color: #2c3e50;
-  font-weight: 700;
+  font-family: "Bangers", cursive;
+  font-size: 3.5rem;
+  color: #ffffff;
+  text-shadow: 3px 3px 0px #4d2d7c, 5px 5px 10px rgba(0, 0, 0, 0.5);
+  margin: 0 0 15px 0;
+  letter-spacing: 2px;
 }
 
 .timer-display {
   font-family: "Orbitron", sans-serif;
-  font-size: 4.5rem;
+  font-size: 5rem;
   font-weight: 700;
-  color: #3498db;
+  color: #ffd700; /* Warna Emas */
   margin: 20px 0;
-  padding: 10px;
-  background-color: #ecf0f1;
-  border-radius: 10px;
-  transition: color 0.3s, background-color 0.3s;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  transition: all 0.3s;
+  text-shadow: 0 0 15px #ffd700;
 }
 
+/* Efek saat waktu habis */
 .timer-display.times-up {
-  color: white;
-  background-color: #e74c3c;
-  animation: pulse 1s infinite;
+  color: #4d2d7c;
+  background-color: #ffd700;
+  text-shadow: 0 0 10px #fff;
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
 .preset-buttons,
 .control-buttons {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
   margin-bottom: 20px;
   flex-wrap: wrap;
 }
 
 button {
-  padding: 12px 20px;
-  font-size: 1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: all 0.2s ease-in-out;
   font-weight: 700;
 }
 
 button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .preset-btn {
-  background-color: #9b59b6;
+  padding: 12px 20px;
+  font-size: 1rem;
+  background-color: #8e44ad;
   color: white;
+  border: 2px solid #c8a2c8;
 }
 
 .preset-btn:hover {
-  background-color: #8e44ad;
+  background-color: #9b59b6;
 }
 
-#start-btn {
-  background-color: #2ecc71;
-  color: white;
+.control-buttons button {
+  background-color: #4d2d7c;
+  color: #ffd700;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #ffd700;
 }
-#start-btn:hover {
-  background-color: #27ae60;
+
+.control-buttons button .icon {
+  width: 40px;
+  height: 40px;
+  fill: #ffd700; /* Pastikan warna ikon sesuai */
+  transition: fill 0.3s;
 }
+
 #start-btn:disabled {
-  background-color: #bdc3c7;
+  background-color: #3a225c;
+  border-color: #7b6d91;
   cursor: not-allowed;
   transform: none;
+  box-shadow: none;
 }
 
-#stop-btn {
-  background-color: #e67e22;
-  color: white;
-}
-#stop-btn:hover {
-  background-color: #d35400;
+#start-btn:disabled .icon {
+  fill: #7b6d91;
 }
 
-#reset-btn {
-  background-color: #e74c3c;
-  color: white;
-}
-#reset-btn:hover {
-  background-color: #c0392b;
-}
-
-/* Animasi untuk display saat waktu habis */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
+/* Animasi getar khas Gear 5 */
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
   }
-  50% {
-    transform: scale(1.05);
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
   }
-  100% {
-    transform: scale(1);
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
   }
 }

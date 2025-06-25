@@ -40,7 +40,7 @@ function startTimer() {
       clearInterval(countdown);
       timerDisplay.classList.add("times-up");
       document.title = "Waktu Habis!";
-      alarmSound.play(); // Mainkan suara alarm
+      alarmSound.play(); // Mainkan suara alarm "Drums of Liberation"
       return;
     }
 
@@ -59,7 +59,7 @@ function resetTimer() {
   clearInterval(countdown);
   timeInSeconds = 0;
   displayTimeLeft(0);
-  document.title = "Egg Timer Sederhana";
+  document.title = "Gear 5 Egg Timer";
   timerDisplay.classList.remove("times-up");
   alarmSound.pause();
   alarmSound.currentTime = 0;

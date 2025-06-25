@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Egg Timer Sederhana</title>
+    <title>Gear 5 Egg Timer</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=Orbitron:wght@700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
     <main class="timer-container">
-      <h1>Egg Timer</h1>
+      <h1>Gear 5 Timer!</h1>
 
       <div class="timer-display" id="timer-display">00:00</div>
 
@@ -29,15 +29,56 @@
       </div>
 
       <div class="control-buttons">
-        <button id="start-btn">Mulai</button>
-        <button id="stop-btn">Henti</button>
-        <button id="reset-btn">Reset</button>
+        <!-- Tombol Start dengan ikon Buah Gomu Gomu -->
+        <button id="start-btn" title="Mulai">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="icon"
+          >
+            <path
+              d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm-1.5 5C9.672 7 9 7.672 9 8.5s.672 1.5 1.5 1.5S12 9.328 12 8.5 11.328 7 10.5 7zm3 0c-.828 0-1.5.672-1.5 1.5s.672 1.5 1.5 1.5 1.5-.672 1.5-1.5S14.328 7 13.5 7zm-1.5 4.5c-2.33 0-4.31 1.46-5.11 3.5h10.22c-.8-2.04-2.78-3.5-5.11-3.5z"
+            />
+          </svg>
+        </button>
+        <!-- Tombol Henti dengan ikon petir Haki -->
+        <button id="stop-btn" title="Henti">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="icon"
+          >
+            <path d="M7 2v11h3v9l7-12h-4l4-8H7z" />
+          </svg>
+        </button>
+        <!-- Tombol Reset dengan ikon Topi Jerami -->
+        <button id="reset-btn" title="Reset">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="icon"
+          >
+            <path
+              d="M21.79 11H2.21C2.76 5.23 6.89 2 12 2s9.24 3.23 9.79 9zM4.06 13h15.88c-.54 4.53-4.24 8-9.94 8s-9.4-3.47-9.94-8z"
+            />
+          </svg>
+        </button>
       </div>
     </main>
 
+    <!-- Suara Alarm diubah menjadi "Drums of Liberation" -->
     <audio
       id="alarm-sound"
-      src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg"
+      src="https://www.myinstants.com/media/sounds/drums-of-liberation.mp3"
       preload="auto"
     ></audio>
 
