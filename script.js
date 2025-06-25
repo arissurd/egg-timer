@@ -69,6 +69,9 @@ function resetTimer() {
 // Menambahkan event listener ke tombol preset
 presetButtons.forEach((button) => {
   button.addEventListener("click", () => {
+    // [FIX] Memuat audio setelah interaksi pengguna pertama untuk mengatasi kebijakan autoplay browser.
+    alarmSound.load();
+
     // Mengambil waktu dari atribut data-time
     const seconds = parseInt(button.getAttribute("data-time"));
 
